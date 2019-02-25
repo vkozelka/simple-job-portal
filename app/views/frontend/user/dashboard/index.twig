@@ -1,0 +1,50 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}Nástěnka{% endblock %}
+
+{% block main %}
+    <div class="text-center">
+    <h3 class="mb-0 mt-5">{{ cmsUser().getFullGreeting() }}</h3>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="text-center mt-5 mb-5">
+                <a href="{{ cmsUrl("default",{"module":"user","controller":"tips","action":"add"}) }}" class="btn btn-success btn-lg btn-block">{{ cmsTranslate("system.user.dashboard.new_tip") }}</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="text-center mt-5 mb-5">
+                <a href="{{ cmsUrl("default",{"module":"user","controller":"propagation"}) }}" class="btn btn-info btn-lg btn-block">{{ cmsTranslate("system.user.dashboard.propagation") }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <hr />
+    <h3 class="text-center">{{ cmsTranslate("system.user.dashboard.statistics.title") }}</h3>
+    <div class="row">
+        <div class="col col-md-6 stats-graph-item">
+            <h4 class="text-center">{{ cmsTranslate("system.user.dashboard.statistics.added_tips.title") }}</h4>
+            <app-pie-chart :options="{responsive:true}" :height="200" :dataset="{labels:['{{ cmsTranslate("system.user.tips.type.mortgage") }}','{{ cmsTranslate("system.user.tips.type.energy") }}','{{ cmsTranslate("system.user.tips.type.reality") }}'], datasets: [{ backgroundColor: ['rgba(255,0,0,0.5)','rgba(0,255,0,0.5)','rgba(0,0,255,0.5)'], data: {{ added_stats_data }} }]}"></app-pie-chart>
+        </div>
+        <div class="col col-md-6 stats-graph-item">
+            <h4 class="text-center">{{ cmsTranslate("system.user.dashboard.statistics.finished_tips.title") }}</h4>
+            <app-pie-chart :options="{responsive:true}" :height="200" :dataset="{labels:['{{ cmsTranslate("system.user.tips.type.mortgage") }}','{{ cmsTranslate("system.user.tips.type.energy") }}','{{ cmsTranslate("system.user.tips.type.reality") }}'], datasets: [{ backgroundColor: ['rgba(255,0,0,0.5)','rgba(0,255,0,0.5)','rgba(0,0,255,0.5)'], data: {{ finished_stats_data }} }]}"></app-pie-chart>
+        </div>
+    </div>
+    <hr />
+    <h3 class="text-center">{{ cmsTranslate("system.user.dashboard.income.title") }}</h3>
+    <div class="row mb-3">
+        <div class="col text-left">
+            <a href="{{ cmsUrl("default",{"module":"user","controller":"dashboard","action":"index","year":year-1}) }}" class="btn btn-sm btn-info"><span class="fa fa-chevron-left"></span> {{ year-1 }}</a>
+        </div>
+        <div class="col text-right">
+            <a href="{{ cmsUrl("default",{"module":"user","controller":"dashboard","action":"index","year":year+1}) }}" class="btn btn-sm btn-info">{{ year+1 }} <span class="fa fa-chevron-right"></span></a>
+        </div>
+    </div>
+    <app-bar-chart
+            :options="{legend:false,responsive:true,tooltips:{callbacks:{label: function(item,data) {return item.yLabel+' Kč'} } },scales:{yAxes:[{ticks:{beginAtZero:true,callback: function(value,index,values) { return value + ' Kč' } } } ] } }"
+            :height="200"
+            :dataset="{ labels: {{ income["labels"] }}, datasets: [{backgroundColor: 'rgba(255,0,0,0.5)', data: {{ income["data"] }} }]}">
+    </app-bar-chart>
+{% endblock %}

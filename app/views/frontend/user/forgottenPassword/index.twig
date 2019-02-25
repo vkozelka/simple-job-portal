@@ -1,0 +1,23 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}Zapomenuté heslo{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <h2>{{ cmsTranslate("system.user.auth.password.title") }}</h2>
+
+            <form action="{{ cmsUrl("default",{"module":"user","controller":"forgottenPassword"}) }}" method="post">
+                {{ include('__partials/form/element/text.twig', {form:passwordForm,field:'email',label:cmsTranslate("system.user.auth.login.form.email")}) }}
+                <button type="submit" class="btn btn-primary btn-block">{{ cmsTranslate("system.user.auth.password.form.button") }}</button>
+            </form>
+            <div class="text-center">
+                <small>nebo</small><br />
+                <a href="{{ cmsUrl("default", {"module":"user","controller":"auth","action":"login"}) }}">Zpět k přihlášení</a>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+
+{% endblock %}

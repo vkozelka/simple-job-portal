@@ -1,0 +1,22 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}Změna hesla{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <h2>{{ cmsTranslate("system.user.auth.change_password.title") }}</h2>
+
+            <form action="{{ cmsUrl("default",{"module":"user","controller":"password"}) }}" method="post">
+                {{ include('__partials/form/element/password.twig', {form:passwordForm,field:'old_password',label:cmsTranslate("system.user.auth.change_password.form.old_password")}) }}
+                <hr>
+                {{ include('__partials/form/element/password.twig', {form:passwordForm,field:'new_password',label:cmsTranslate("system.user.auth.change_password.form.new_password")}) }}
+                {{ include('__partials/form/element/password.twig', {form:passwordForm,field:'new_password_confirmation',label:cmsTranslate("system.user.auth.change_password.form.new_password_confirmation")}) }}
+                <button type="submit" class="btn btn-primary btn-block">{{ cmsTranslate("system.user.auth.change_password.form.button") }}</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+
+{% endblock %}

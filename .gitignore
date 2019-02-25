@@ -1,0 +1,5 @@
+/.skin/node_modules/
+/config/*.yml
+/var
+/vendor
+/.idea

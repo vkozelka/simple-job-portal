@@ -1,0 +1,26 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}Přihlášení{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-md-6">
+            <h2>{{ cmsTranslate("system.user.auth.login.title") }}</h2>
+
+            <form action="{{ cmsUrl("default",{"module":"user","controller":"auth","action":"login"}) }}" method="post">
+                {{ include('__partials/form/element/text.twig', {form:loginForm,field:'email',label:cmsTranslate("system.user.auth.login.form.email")}) }}
+                {{ include('__partials/form/element/password.twig', {form:loginForm,field:'password',label:cmsTranslate("system.user.auth.login.form.password")}) }}
+                <button type="submit" class="btn btn-primary btn-block">{{ cmsTranslate("system.user.auth.login.form.button") }}</button>
+            </form>
+            <div class="text-center">
+                <small>nebo</small><br />
+                <a href="{{ cmsUrl("default", {"module":"user","controller":"forgottenPassword"}) }}">Zapomněl jsem heslo</a><br />
+                <small>nebo</small><br />
+                <a href="{{ cmsUrl("default", {"module":"user","controller":"reactivation"}) }}">Znovu poslat aktivační e-mail</a>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}Podepsání smlouvy{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-9">
+            <h2>{{ cmsTranslate("system.user.register.agreement.title") }}</h2>
+            <p>Smlouva o spolupráci</p>
+            <p>
+                {{ user.first_name }} {{ user.last_name }}<br />
+                R.Č.: {{ user.personal_identification_number }}<br />
+                {{ user.address }}<br />
+                Tel.: {{ user.phone }}<br />
+                Email: {{ user.email }}<br />
+                Bankovní spojení: {{ user.bank_account_number }}
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget erat ex. Nullam quis purus sed elit placerat malesuada sit amet sit amet tortor. Morbi sem lorem, faucibus ac dapibus at, tempor quis dolor. Aliquam ultricies lobortis dolor ut elementum. Proin condimentum, erat at posuere finibus, mi tellus porttitor arcu, vel condimentum justo sem at elit. Aliquam feugiat libero iaculis mauris congue, sodales maximus erat hendrerit. Vivamus eu erat eget eros hendrerit dignissim. Donec luctus, lectus eu suscipit tristique, urna sem pretium justo, quis sodales lorem augue vitae dolor. Pellentesque condimentum libero in cursus malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris elementum lectus ac diam rutrum, sit amet feugiat orci aliquam. Etiam et lobortis lectus, ac rutrum nisl. Maecenas dictum ut mauris ac tempus. Nam vel quam nec mauris iaculis pulvinar ut ut sapien. Donec auctor, enim sit amet luctus iaculis, mi erat interdum arcu, at iaculis est nunc sed nisl. Fusce sed eleifend sapien.</p>
+            <p>Morbi vulputate mi et ex dignissim, auctor porttitor sapien laoreet. Aenean in purus accumsan, tincidunt risus eget, dignissim enim. Duis ex ex, varius vitae felis nec, viverra maximus enim. Nam congue sit amet lacus non bibendum. Fusce faucibus, metus quis feugiat hendrerit, enim arcu fermentum lorem, vitae dignissim enim odio eu lorem. In feugiat luctus facilisis. Suspendisse potenti. Curabitur quis ex eget mauris laoreet placerat. Donec tristique tincidunt enim, ut convallis lorem molestie quis. Nam pellentesque eleifend eros, sed hendrerit ipsum aliquam non. Pellentesque lobortis pellentesque elit, non blandit diam gravida pulvinar. Quisque turpis quam, gravida nec massa a, gravida congue purus. Phasellus ut dolor nibh. Suspendisse posuere sed ipsum efficitur hendrerit. Ut neque metus, molestie sed varius at, euismod tincidunt nisl. Sed mollis facilisis felis eu mattis.</p>
+            <p>Nulla nisi dui, vehicula id ligula id, mollis gravida risus. Proin magna ex, fringilla vitae vehicula nec, molestie et eros. Nunc aliquet est et orci egestas iaculis. Mauris odio ligula, luctus a tellus ac, facilisis congue dui. Nam ac elit eros. In ut ante nulla. Donec nec lectus in massa porta laoreet. Morbi dictum tortor vel nisl sagittis consectetur.</p>
+            <p>Praesent commodo faucibus ullamcorper. Nullam rutrum, orci non sagittis posuere, lectus lectus commodo ipsum, nec condimentum enim turpis sed urna. Nam tincidunt, leo nec fringilla aliquam, dolor enim scelerisque diam, non posuere tellus leo id neque. Vestibulum suscipit diam dui, et tempus lacus pellentesque non. Curabitur pharetra consequat ullamcorper. Donec tincidunt auctor velit, eu placerat leo dapibus id. Curabitur rhoncus ante enim, scelerisque suscipit eros ullamcorper nec. Ut id elit rhoncus libero lobortis venenatis sit amet vel sem. Suspendisse efficitur a dui eget aliquet. Suspendisse nec erat tellus. Suspendisse potenti. Mauris est nisi, elementum quis tortor eu, maximus volutpat nisi. Vestibulum suscipit magna eget est vehicula hendrerit. Suspendisse a justo augue. Sed lacinia vel elit in sollicitudin. Sed consequat arcu sed nisi aliquet, vel faucibus nunc blandit.</p>
+            <p>Aliquam erat volutpat. Quisque suscipit tellus ullamcorper, venenatis ipsum vitae, dignissim urna. Etiam at nulla odio. In at luctus urna. Cras lacinia tincidunt mauris, a vestibulum nunc volutpat quis. Aliquam urna mauris, sollicitudin in dui id, laoreet commodo dui. Praesent pretium ipsum lectus, sit amet luctus sapien semper rhoncus. Nunc sit amet libero ut nisi euismod convallis id ut sem. Sed tincidunt gravida semper. Phasellus sed nulla semper, eleifend sem quis, placerat justo. In vel libero condimentum purus feugiat lacinia. Suspendisse in odio tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor lorem velit, nec pellentesque felis tincidunt et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent nibh turpis, placerat vel dapibus ut, semper vitae orci.</p>
+            <p>Sed consectetur suscipit augue, quis vulputate elit aliquam sed. Praesent dignissim tellus enim. Pellentesque sed convallis velit, faucibus porta eros. Sed vel neque eget mauris mattis rhoncus. Suspendisse potenti. Proin tincidunt auctor libero. Donec a consectetur arcu, eget aliquam enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent convallis scelerisque tortor quis efficitur. Nunc eget placerat ligula, vulputate fringilla diam. Donec vel enim nec odio malesuada tempor vitae nec ante. Mauris efficitur rhoncus vehicula. Nam at augue ut libero ullamcorper tincidunt. Nullam sodales sit amet orci non rhoncus. Pellentesque nec commodo eros.</p>
+            <p>Vivamus sodales eu lorem vitae auctor. Suspendisse gravida sem eu erat eleifend, vel porttitor nisl aliquam. Morbi interdum dui at rhoncus suscipit. Mauris vel euismod elit. Cras condimentum, lectus eget rhoncus porttitor, nibh arcu convallis nisl, vitae molestie leo nisl eget velit. In rutrum velit nec felis luctus tempus. Vestibulum pellentesque condimentum dapibus. Aenean tortor turpis, viverra vel orci nec, blandit dignissim lacus.</p>
+            <p>Vestibulum sagittis dolor blandit, luctus est vel, posuere ligula. Sed tortor tellus, laoreet a suscipit a, luctus id risus. Vestibulum tempus rutrum malesuada. Nullam commodo massa quis turpis efficitur mattis. Donec quam erat, ultricies eu ultricies id, consectetur ullamcorper lectus. In et magna ut felis feugiat venenatis. Curabitur commodo accumsan cursus. Cras vehicula fringilla nisi, ac efficitur risus pulvinar nec. Donec mollis, neque non pharetra cursus, urna tortor varius nibh, ac interdum risus augue a est. Fusce condimentum id lorem vitae molestie. Nulla non mi molestie, feugiat massa vitae, molestie tortor.</p>
+            <p>Nunc id feugiat mi. Duis ultricies dignissim nisi, nec tristique dolor faucibus malesuada. Ut malesuada congue tellus, eget sagittis metus laoreet nec. Duis posuere cursus ante ac iaculis. Phasellus pretium diam sit amet sapien congue, eget facilisis lectus dictum. Aliquam efficitur risus non urna cursus fringilla. Nulla commodo vulputate congue. Nunc euismod in risus et fringilla. Maecenas ligula mi, vehicula sit amet lorem id, aliquam malesuada turpis. Fusce sapien quam, maximus eget augue eu, mollis viverra libero. Nullam et justo pharetra, blandit nulla vel, semper nibh. Mauris porta gravida mi nec aliquam. Morbi maximus sodales tellus eget mollis. Cras sem lorem, posuere sit amet tristique quis, congue eget risus.</p>
+            <p>Integer pellentesque nulla ante, id lacinia risus auctor eu. Aliquam imperdiet, lectus ac condimentum vestibulum, sapien ante placerat risus, eu pellentesque quam risus nec sem. Suspendisse vel arcu quis magna tristique vehicula. Nulla lobortis tellus at mi congue commodo. Aenean eros nulla, dignissim id facilisis at, sollicitudin gravida neque. Quisque hendrerit non sapien at tempus. Donec vitae arcu porta, varius felis ac, viverra nibh. Proin a sapien et tortor lacinia aliquet. Duis sodales rutrum dictum.</p>
+            <hr />
+            <form action="{{ cmsUrl("default",{"module":"user","controller":"register","action":"agreement","user":user.salt}) }}" method="post">
+                <input type="hidden" name="id_user" value="{{ user.id_user }}">
+                <input type="hidden" name="user" value="{{ user.salt }}">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" name="gdprinfo" id="gdpr_info">
+                        <label class="form-check-label" for="gdpr_info">
+                            Čestně prohlašuji ze s výše uvedeným souhlasím a mnou zadané údaje jsou pravdivé.
+                        </label>
+                        {% if agreementForm.hasErrors("gdprinfo") %}
+                            <ul class="cms-form-error-container">
+                                {% for error in agreementForm.getErrors("gdprinfo") %}
+                                    <li>{{ cmsFormError(error) }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Souhlasím a podepisuji</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+{% endblock %}

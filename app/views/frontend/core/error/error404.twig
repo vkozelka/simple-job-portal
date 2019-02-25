@@ -1,0 +1,8 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}Stránka nebyla nalezena{% endblock %}
+
+{% block main %}
+    <h2>Error 404</h2>
+    <p>Požadovaná stránka nebyla nalezena. Vraťte se prosím na <a href="{{ cmsUrl("default",{"module":"core","controller":"index"}) }}">výchozí stránku</a> a zkuste jiný odkaz.</p>
+{% endblock %}

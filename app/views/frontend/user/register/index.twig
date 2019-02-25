@@ -1,0 +1,50 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}Regsitrace{% endblock %}
+
+{% block customMeta %}
+    {% if partner %}
+        <meta property="og:title" content="tipni.to">
+        <meta property="og:description" content="{{ partner.first_name }} {{ partner.last_name }} Vás zve ke spolupráci na portálu tipni.to. Klikněte a registrujte se :-)">
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+    <div class="col"></div>
+    <div class="col-md-6">
+    <h2>{{ cmsTranslate("system.user.register.form.title") }}</h2>
+    {% if partner %}
+        <form action="{{ cmsUrl("default",{"module":"user","controller":"register","action":"index","partner":partner.salt}) }}" method="post">
+    {% else %}
+        <form action="{{ cmsUrl("default",{"module":"user","controller":"register"}) }}" method="post">
+    {% endif %}
+        <div class="row">
+            <div class="col">
+                {{ include('__partials/form/element/text.twig', {form:registerForm,field:'first_name',label:cmsTranslate("system.user.register.form.first_name")}) }}
+            </div>
+            <div class="col">
+                {{ include('__partials/form/element/text.twig', {form:registerForm,field:'last_name',label:cmsTranslate("system.user.register.form.last_name")}) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ include('__partials/form/element/text.twig', {form:registerForm,field:'email',label:cmsTranslate("system.user.register.form.email")}) }}
+            </div>
+            <div class="col">
+                {{ include('__partials/form/element/text.twig', {form:registerForm,field:'phone',label:cmsTranslate("system.user.register.form.phone")}) }}
+            </div>
+        </div>
+        {{ include('__partials/form/element/textarea.twig', {form:registerForm,field:'address',label:cmsTranslate("system.user.register.form.address")}) }}
+        {{ include('__partials/form/element/radio.twig', {form:registerForm,field:'sex',label:cmsTranslate("system.user.register.form.sex"),options:{"male": cmsTranslate("system.user.register.form.sex.male"),"female": cmsTranslate("system.user.register.form.sex.female")}}) }}
+        <hr />
+        {{ include('__partials/form/element/text.twig', {form:registerForm,field:'personal_identification_number',label:cmsTranslate("system.user.register.form.personal_identification_number")}) }}
+        {{ include('__partials/form/element/text.twig', {form:registerForm,field:'bank_account_number',label:cmsTranslate("system.user.register.form.bank_account_number")}) }}
+        {{ include('__partials/form/element/checkbox.twig', {form:registerForm,field:'gdprinfo',label:cmsTranslate("system.user.register.form.gdprinfo")}) }}
+
+        <button type="submit" class="btn btn-primary btn-block">{{ cmsTranslate("system.user.register.form.submit") }}</button>
+    </form>
+    </div>
+    <div class="col"></div>
+    </div>
+{% endblock %}
