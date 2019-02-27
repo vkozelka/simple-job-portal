@@ -1,0 +1,33 @@
+<header class="header {{ current_block.getOption("class") }}">
+    <div class="banner">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="navbar-left">
+                    <a class="navbar-brand" href="/"><img src="/skin/img/logo.png" alt="logo"/></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/pro-firmy.html">Pro firmy</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="/pro-jednotlivce.html">Pro jednotlivce</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="{{ cmsUrl('job') }}">Nabídky práce</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/o-nas.html">O nás</a></li>
+                        <!--li class="nav-item"><a class="nav-link" href="/novinky">Novinky</a></li-->
+                        <li class="nav-item"><a class="nav-link" href="/kontakt.html">Kontakt</a></li>
+                        <!--li class="nav-item"><a class="nav-link" href="#"><img src="/assets/images/search.png" alt="search"/></a></li-->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    {% if current_block.getOption("show_jumbotron") == 1 %}
+    <div class="jumbotron d-flex flex-column align-items-center justify-content-center align-items-center">
+        <h2 class="banner-title font-light">VYUŽIJTE SLUŽEB NAŠÍ ZKUŠENÉ</h2>
+        <h2 class="banner-subtitle font-medium">AGENTURY PRÁCE</h2>
+        <a href="{{ cmsUrl('job') }}" class="btn-outline-green">Nabídky práce</a>
+    </div>
+    {% endif %}
+
+</header>

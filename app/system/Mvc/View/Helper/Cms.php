@@ -2,6 +2,7 @@
 namespace App\System\Mvc\View\Helper;
 
 use App\System\App;
+use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Validator\ConstraintViolation;
 
 class Cms Extends \Twig_Extension {
@@ -22,7 +23,7 @@ class Cms Extends \Twig_Extension {
         ];
     }
 
-    public function url($name, array $parameters) {
+    public function url($name, array $parameters = []) {
         return App::get()->getUrl()->generate($name, $parameters);
     }
 

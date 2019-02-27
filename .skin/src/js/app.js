@@ -1,7 +1,5 @@
 import "../css/app.scss";
 
-import 'bootstrap';
-
 import Vue from "vue"
 import axios from "axios"
 import vueaxios from "vue-axios"

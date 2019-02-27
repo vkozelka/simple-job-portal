@@ -8,7 +8,8 @@ class IndexController extends Controller {
 
     public function indexAction()
     {
-
+        App::get()->getProfiler()->start("App::Core::IndexController::indexAction");
+        App::get()->getProfiler()->stop("App::Core::IndexController::indexAction");
     }
 
 }

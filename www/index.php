@@ -22,6 +22,6 @@ $app->getProfiler()->start("App");
 echo $app->run();
 $app->getProfiler()->stop("App");
 
-if ("development" === $app->getEnvironment()) {
+//if ("development" === $app->getEnvironment()) {
     $app->outputProfiler();
-}
+//}

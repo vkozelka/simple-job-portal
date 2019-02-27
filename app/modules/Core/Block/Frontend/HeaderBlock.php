@@ -7,4 +7,9 @@ class HeaderBlock extends Block {
 
     protected $_template = "core/header";
 
+    protected $_options = [
+        "class" => "homepage-header",
+        "show_jumbotron" => true
+    ];
+
 }

@@ -1,0 +1,84 @@
+$primary-color: #009844;
+
+body {
+  overflow-x: hidden;
+}
+a.hover {
+  color: #009844!important;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  background-color: $primary-color;
+  padding: 0;
+  .nav-item {
+    margin: 0 1.2rem;
+    .nav-link {
+      color: #fff;
+      display: block;
+    }
+  }
+}
+
+.navbar-left {
+  background: url("/skin/img/banner_separator.png") no-repeat right center #fff;
+  height: 119px;
+  line-height: 115px;
+  .navbar-brand {
+    margin-right: 5rem;
+  }
+}
+
+.homepage-header {
+  height: 700px;
+  background: url("/skin/img/banner.png") no-repeat center center;
+}
+
+.job-header {
+  height: 350px;
+  background: url("/skin/img/banner.png") no-repeat center center;
+}
+
+.header .banner, .homepage-header .banner {
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 0%, #ffffff 50%, $primary-color 51%, $primary-color 100%);
+  background: -webkit-linear-gradient(left, #ffffff 0%, #ffffff 50%, $primary-color 51%, $primary-color 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 50%, $primary-color 51%, $primary-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#009844', GradientType=1);
+}
+
+.jumbotron {
+  background: transparent;
+  color: #fff;
+  text-align: center;
+  height: 80%;
+  h2 {
+    font-size: 4.375rem;
+    &.banner-title {
+      font-size: 2.8125rem;
+    }
+  }
+}
+
+.btn-outline-green {
+  background: transparent;
+  border: 1px solid $primary-color;
+  padding: 0.5rem 3rem;
+  color: #fff;
+  &:hover {
+    background-color: $primary-color !important;
+    color: #fff !important;
+  }
+}
+.btn-green {
+  background-color: $primary-color;
+  border: 1px solid $primary-color;
+  border-bottom-color: #007c37;
+  border-bottom-width: 4px;
+  padding: 0.5rem 2rem;
+  color: #fff;
+}

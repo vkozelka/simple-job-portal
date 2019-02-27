@@ -38,6 +38,12 @@ class Controller {
         return App::get()->getResponse();
     }
 
+    public function getRouteParam($key, $default = null)
+    {
+        $routeParams = App::get()->getRouter()->getMatchedRoute();
+        return isset($routeParams[$key]) ? $routeParams[$key] : $default;
+    }
+
     public function redirect(string $routeName, array $routeParams = []) {
         return new RedirectResponse(App::get()->getUrl()->generate($routeName, $routeParams));
     }

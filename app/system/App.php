@@ -283,10 +283,10 @@ final class App
     }
 
     private function __prepareDirs() {
-        $this->__checkDir(CMS_DIR_VAR);
-        $this->__checkDir(CMS_DIR_VAR_CACHE);
-        $this->__checkDir(CMS_DIR_VAR_LOG);
-        $this->__checkDir(CMS_DIR_VAR_SESSION);
+        $this->__checkDir(CMS_DIR_VAR,true);
+        $this->__checkDir(CMS_DIR_VAR_CACHE,true);
+        $this->__checkDir(CMS_DIR_VAR_LOG,true);
+        $this->__checkDir(CMS_DIR_VAR_SESSION,true);
         ini_set("session.save_path", CMS_DIR_VAR_SESSION);
     }
 

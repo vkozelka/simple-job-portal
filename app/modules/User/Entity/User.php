@@ -56,5 +56,4 @@ class User extends Entity {
     public function isAdmin() {
         return intval($this->id_user_role) === \App\Module\User\Model\User\Role::USER_ROLE_ADMIN;
     }
-
 }

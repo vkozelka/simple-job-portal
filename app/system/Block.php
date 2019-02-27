@@ -11,7 +11,7 @@ class Block {
 
     public function __construct(array $options = [])
     {
-        $this->_options = $options;
+        $this->_options = array_merge($this->_options,$options);
     }
 
     public function setVar($var, $value) {
@@ -38,6 +38,7 @@ class Block {
             $template = $this->_template;
         }
         $data = array_merge($this->_data, $data);
+        $data["current_block"] = $this;
         return App::get()->getView()->render("__block/".$template, $data);
     }
 
