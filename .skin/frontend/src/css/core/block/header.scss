@@ -188,6 +188,14 @@ a.hover {
   border-bottom-width: 4px;
   padding: 0.5rem 2rem;
   color: #fff;
+
+  &:hover {
+    color: #fff;
+    background-color: #007c37;
+    border: 1px solid #007c37;
+    border-bottom-width: 4px;
+    border-bottom-color: $primary-color;
+  }
 }
 
 

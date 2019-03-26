@@ -1,0 +1,18 @@
+.contact-form {
+
+  background-color: #eee;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  input, textarea {
+    border-color: #009844;
+  }
+
+  button.btn.btn-success {
+    background-color: #009844;
+    padding: 0.5rem 3rem;
+  }
+
+}

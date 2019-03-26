@@ -1,0 +1,105 @@
+<div class="content content gray-bg contact-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center">Zaujala Vás tato pracovní nabídka?</h3>
+                <h5 class="text-center"><a class="btn btn-info btn-sm" href="/gdpr_dokument_uchazec.docx" target="_blank"><i class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;&nbsp;INFORMACE PRO UCHAZEČE O ZPRACOVÁNÍ OSOBNÍCH ÚDAJŮ DLE NAŘÍZENÍ EVROPSKÉHO PARLAMENTU A RADY (EU) 2016/6</a></h5>
+                <div class="card card-plain">
+                    <div class="card-text">
+                        <div class="font-light">
+                            <form enctype="multipart/form-data" action="{{ cmsUrl("default",{"module":"job","controller":"detail","action":"application"}) }}" method="post" role="form">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="text" name="job" placeholder="Pracovní pozice" value="{{ current_block.getOption("job").title }}" class="form-control" required readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="text" name="name" placeholder="Jméno" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="text" name="surname" placeholder="Příjmení" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="text" name="phone" placeholder="Telefon" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="E-mail" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <textarea placeholder="Průvodní dopis" name="message" rows="10" class="form-control" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label>Zde můžete vložit Váš životopis</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="file" id="attachment0" accept=".pdf,.doc,.docx" name="attachment_0" placeholder="Životopis" class="inputfile" />
+                                            <label for="attachment0"><i class="fa fa-upload"></i> <span class="title">Vyberte soubor</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label>Zde můžete vložit Vaše platné kvalifikační osvědčení, certifikáty, průkazy atd.</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="file" id="attachment1" accept=".pdf,.doc,.docx" name="attachment_1" placeholder="Platné kvalifikační osvědčení, certifikáty, průkazy atd." class="inputfile" />
+                                            <label for="attachment1"><i class="fa fa-upload"></i> <span class="title">Vyberte soubor</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="file" id="attachment2" accept=".pdf,.doc,.docx" name="attachment_2" placeholder="Platné kvalifikační osvědčení, certifikáty, průkazy atd." class="inputfile" />
+                                            <label for="attachment2"><i class="fa fa-upload"></i> <span class="title">Vyberte soubor</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="file" id="attachment3" accept=".pdf,.doc,.docx" name="attachment_3" placeholder="Platné kvalifikační osvědčení, certifikáty, průkazy atd." class="inputfile" />
+                                            <label for="attachment3"><i class="fa fa-upload"></i> <span class="title">Vyberte soubor</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="file" id="attachment4" accept=".pdf,.doc,.docx" name="attachment_4" placeholder="Platné kvalifikační osvědčení, certifikáty, průkazy atd." class="inputfile" />
+                                            <label for="attachment4"><i class="fa fa-upload"></i> <span class="title">Vyberte soubor</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" id="gdpr-check" required>
+                                            <label class="form-check-label" for="gdpr-check">Souhlasím se zpracováním osobních údajů podle zákona č. 101/2000 sb. O ochraně osobních údajů</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <button type="submit" class="btn btn-success">Odeslat</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

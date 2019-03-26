@@ -1,0 +1,24 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}{{ page.title }} ::{% endblock %}
+
+{% block main %}
+    {{ cmsBlock("core/header",{"class":"job-header","show_jumbotron": false, title: page.title}).render() | raw }}
+    <div class="content content gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-plain">
+                        <div class="card-text">
+                            <div class="font-light">
+                                {{ page.description | raw }}
+                                {{ cmsBlock("core/contact").render() | raw }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ cmsBlock("core/contactform").render() | raw }}
+{% endblock %}

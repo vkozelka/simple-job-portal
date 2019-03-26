@@ -48,6 +48,10 @@ class Controller {
         return new RedirectResponse(App::get()->getUrl()->generate($routeName, $routeParams));
     }
 
+    public function redirectToUrl(string $url) {
+        return new RedirectResponse($url);
+    }
+
     public function flash(string $message, string $type = "success") {
         App::get()->getSession()->getFlashBag()->set($type, $message);
     }

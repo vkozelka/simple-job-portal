@@ -1,0 +1,64 @@
+<div class="content content gray-bg contact-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center">Zanechte nám zprávu</h3>
+                <div class="card card-plain">
+                    <div class="card-text">
+                        <div class="font-light">
+                            <form enctype="multipart/form-data" action="{{ cmsUrl("default",{"module":"core","controller":"index","action":"contact"}) }}" method="post" role="form">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="text" name="name" placeholder="Jméno" class="form-control" required />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="E-mail" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="text" name="subject" placeholder="Předmět" class="form-control" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <textarea placeholder="Vaše zpráva" name="message" rows="10" class="form-control" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input type="file" id="attachment" accept=".pdf,.doc,.docx" name="attachment" placeholder="Soubor" class="inputfile" />
+                                            <label for="attachment"><i class="fa fa-upload"></i> <span class="title">Vyberte soubor</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" id="gdpr-check" required>
+                                            <label class="form-check-label" for="gdpr-check">Souhlasím se zpracováním osobních údajů podle zákona č. 101/2000 sb. O ochraně osobních údajů</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <button type="submit" class="btn btn-success">Odeslat</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

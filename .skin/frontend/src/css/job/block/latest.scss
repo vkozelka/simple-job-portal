@@ -47,10 +47,13 @@ section {
   color: #303130;
   background: url("/skin/frontend/img/offer-item-button.png") no-repeat bottom right #fff;
   margin-bottom: 1.25rem;
+  transition: box-shadow 0.1s ease-in-out;
 
   &:hover {
     color: #303130;
     text-decoration: none;
+
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);
   }
 }
 
@@ -60,6 +63,10 @@ section {
 
 .offer-item-title {
   font-size: 1.5rem;
+  max-height: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .offer-salary {

@@ -49,8 +49,15 @@ class Email {
      * @param array $variables
      * @return int
      */
-    public function send(\Swift_Message $message, string $template, array $variables = []) {
+    public function send(\Swift_Message $message, string $template, array $variables = [], array $attachments = []) {
         try {
+            if ($attachments && count($attachments)) {
+                foreach ($attachments as $attachment => $filename) {
+                    if (file_exists($attachment)) {
+                        $message->attach(new \Swift_Attachment(file_get_contents($attachment),$filename));
+                    }
+                }
+            }
             $message->setBody(App::get()->getView()->render("__email".DS.$template, $variables))->setContentType("text/html");
             return $this->getMailer()->send($message);
         } catch (\Exception $e) {

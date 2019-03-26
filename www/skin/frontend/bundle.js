@@ -116,7 +116,7 @@ eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./sr
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("/* WEBPACK VAR INJECTION */(function($) {\n\n__webpack_require__(/*! ../css/app.scss */ \"./src/css/app.scss\");\n\n$(\".hamburger\").click(function () {\n  $(this).toggleClass(\"is-active\");\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/js/app.js?");
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\n__webpack_require__(/*! ../css/app.scss */ \"./src/css/app.scss\");\n\n$(\".hamburger\").click(function () {\n  $(this).toggleClass(\"is-active\");\n});\n\n$(function () {\n  $(\".inputfile\").on(\"change\", function (e) {\n    if (e.target.files.length) {\n      console.log(e.target.files[0]);\n      $(e.target).parent().find(\"span.title\").text(e.target.files[0].name);\n    } else {\n      $(e.target).parent().find(\"span.title\").text(\"Vyberte soubor\");\n    }\n  });\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/js/app.js?");
 
 /***/ })
 

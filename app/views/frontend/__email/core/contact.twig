@@ -1,0 +1,12 @@
+{% extends "__email/layout.twig" %}
+
+{% block email %}
+    <h1>Kontakt z webu dewaarde.cz</h1>
+
+    <p>Jméno: {{ name }}</p>
+    <p>E-mail: {{ email }}</p>
+    <p>Předmět: {{ subject }}</p>
+    <p>Zpráva: {{ message | nl2br }}</p>
+
+    <p>Tým dewaarde.cz</p>
+{% endblock %}
