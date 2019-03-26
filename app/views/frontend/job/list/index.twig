@@ -4,28 +4,23 @@
 
 {% block main %}
     {{ cmsBlock("core/header",{"class":"job-header","show_jumbotron": false, title: "Nabídky práce" }).render() | raw }}
-    <section class="content gray-bg">
-        <div class="container">
-            <div class="row">
-                {% for job in jobs %}
-                <div class="col-4">
-                    <a href="{{ cmsUrl('job_detail',{'slug':job.slug}) }}" class="card offer-item">
-                        <div class="card-body">
-                            <h5 class="card-title offer-item-title font-light">{{ job.title }}</h5>
-                            <p class="card-text  offer-item-description font-light">
-                                {{ job.description | striptags | slice(0,100) }}
-                                <span class="offer-salary font-regular">Mzda: {{ job.getFormattedSalary() }}</span>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-
-                {% if loop.index % 3 == 0 %}
+<section class="content gray-bg">
+    <div class="container">
+        <div class="row">
+            {% for job in jobs %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <a href="{{ cmsUrl('job_detail',{'slug':job.slug}) }}" class="card offer-item">
+                    <div class="card-body">
+                        <h5 class="card-title offer-item-title font-light">{{ job.title }}</h5>
+                        <p class="card-text  offer-item-description font-light">
+                            {{ job.description | striptags | slice(0,100) }}
+                            <span class="offer-salary font-regular">Mzda: {{ job.getFormattedSalary() }}</span>
+                        </p>
+                    </div>
+                </a>
             </div>
-            <div class="row pt-4">
-                {% endif %}
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

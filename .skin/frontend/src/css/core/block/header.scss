@@ -61,7 +61,7 @@ a.hover {
   height: 700px;
   background: url("/skin/frontend/img/banner.png") no-repeat center center;
   @include media-breakpoint-down(xs) {
-    height: 330px;
+    height: 350px;
     padding-top: 80px;
   }
 }

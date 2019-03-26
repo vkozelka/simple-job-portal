@@ -6942,6 +6942,11 @@ a.text-dark:hover, a.text-dark:focus {
 img {
   max-width: 100%; }
 
+@media (max-width: 991.98px) {
+  .card {
+    margin-bottom: 1.25rem;
+    flex-direction: column-reverse; } }
+
 section.footer {
   background-color: #c8c8c8;
   padding: 2rem 0; }
@@ -7006,7 +7011,7 @@ a.hover {
   background: url("/skin/frontend/img/banner.png") no-repeat center center; }
   @media (max-width: 575.98px) {
     .homepage-header {
-      height: 330px;
+      height: 350px;
       padding-top: 80px; } }
 
 .job-header {
@@ -7212,7 +7217,8 @@ section.offers > h3 {
 .offer-item {
   text-align: left;
   color: #303130;
-  background: url("/skin/frontend/img/offer-item-button.png") no-repeat bottom right #fff; }
+  background: url("/skin/frontend/img/offer-item-button.png") no-repeat bottom right #fff;
+  margin-bottom: 1.25rem; }
   .offer-item:hover {
     color: #303130;
     text-decoration: none; }

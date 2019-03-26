@@ -13,7 +13,7 @@ section {
     .container .row {
       margin-bottom: 1.25rem;
       @include media-breakpoint-down(md) {
-        .col-lg-4{
+        .col-lg-4 {
           margin-bottom: 1.25rem
         }
       }
@@ -46,6 +46,7 @@ section {
   text-align: left;
   color: #303130;
   background: url("/skin/frontend/img/offer-item-button.png") no-repeat bottom right #fff;
+  margin-bottom: 1.25rem;
 
   &:hover {
     color: #303130;

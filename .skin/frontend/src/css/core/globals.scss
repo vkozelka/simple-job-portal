@@ -1,3 +1,10 @@
-img{
+img {
   max-width: 100%;
+}
+
+.card {
+  @include media-breakpoint-down(md) {
+    margin-bottom: 1.25rem;
+    flex-direction: column-reverse;
+  }
 }
