@@ -7186,6 +7186,22 @@ section.content {
     font-size: 1.5rem;
     color: #303130; }
 
+.employee-text {
+  font-size: 1.4rem; }
+
+.employee-name {
+  font-size: 1.5rem;
+  font-weight: bold; }
+
+.employee-position {
+  font-size: 1.2rem; }
+
+.employee {
+  color: #f6f6f6;
+  padding-bottom: 7rem;
+  padding-top: 7rem;
+  background-color: #007c37; }
+
 section.offers {
   padding: 4rem 0;
   text-align: center; }
