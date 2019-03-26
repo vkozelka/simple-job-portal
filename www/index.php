@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors',1);
 define("DS", DIRECTORY_SEPARATOR);
 define("CMS_DIR_WWW", __DIR__);
 define("CMS_DIR_ROOT", dirname(CMS_DIR_WWW));
@@ -22,6 +23,6 @@ $app->getProfiler()->start("App");
 echo $app->run();
 $app->getProfiler()->stop("App");
 
-//if ("development" === $app->getEnvironment()) {
+if ("development" === $app->getEnvironment()) {
     $app->outputProfiler();
-//}
+}
