@@ -1,3 +1,62 @@
 system:
   name: "VKDS-CMS"
   copyright: "Copyright &copy; 2018"
+
+admin:
+  back: "Zpět"
+  save: "Uložit"
+  navigationMenu: "Navigace"
+  logout: "Odhlásit"
+  dashboard:
+    title: "Nástěnka"
+  login:
+    title: "Přihlášení"
+    form:
+      username: "Uživatelské jméno"
+      password: "Heslo"
+      button: "Přihlásit"
+  job:
+    title: "Pracovní pozice"
+    created_at: "Vytvořeno"
+    updated_at: "Posl. úprava"
+    slug: "URL"
+    add: "Přidat"
+    edit: "Upravit"
+    delete: "Smazat"
+    description: "Popis pozice"
+    salary: "Mzda"
+    currency: "Měna"
+    salary_period: "Četnost mzdy"
+    salaryPeriod:
+      hour: "hodinově"
+      month: "měsíčně"
+    salary_type: "Typ mzdy"
+    salaryType:
+      net: "Čistá mzda"
+      gross: "Hrubá mzda"
+    contract: "Smlouva"
+    contractType:
+      full_time: "Plný úvazek"
+      part_time: "Částečný úvazek"
+      other: "Ostatní"
+    is_active: "Aktivní?"
+  news:
+    title: "Novinky"
+    created_at: "Vytvořeno"
+    updated_at: "Posl. úprava"
+    slug: "URL"
+    add: "Přidat"
+    edit: "Upravit"
+    delete: "Smazat"
+    description: "Obsah novinky"
+    is_active: "Aktivní?"
+  page:
+    title: "Stránky"
+    created_at: "Vytvořeno"
+    updated_at: "Posl. úprava"
+    slug: "URL"
+    add: "Přidat"
+    edit: "Upravit"
+    delete: "Smazat"
+    description: "Obsah stránky"
+    is_active: "Aktivní?"

@@ -3,19 +3,27 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="navbar-left">
-                    <a class="navbar-brand" href="/"><img src="/skin/img/logo.png" alt="logo"/></a>
+                    <a class="navbar-brand" href="/"><img src="/skin/frontend/img/logo.png" alt="logo"/></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="/pro-firmy.html">Pro firmy</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="/pro-jednotlivce.html">Pro jednotlivce</a></li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Služby
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/p/personalni-leasing">Personální leasing</a>
+                                <a class="dropdown-item" href="/p/recruiting">Recruiting</a>
+                                <a class="dropdown-item" href="/p/try-and-hire">Try &amp; Hire</a>
+                            </div>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="{{ cmsUrl('job') }}">Nabídky práce</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/o-nas.html">O nás</a></li>
-                        <!--li class="nav-item"><a class="nav-link" href="/novinky">Novinky</a></li-->
-                        <li class="nav-item"><a class="nav-link" href="/kontakt.html">Kontakt</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/p/o-nas">O nás</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/aktuality">Aktuality</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/p/kontakt">Kontakt</a></li>
                         <!--li class="nav-item"><a class="nav-link" href="#"><img src="/assets/images/search.png" alt="search"/></a></li-->
                     </ul>
                 </div>
@@ -28,6 +36,16 @@
         <h2 class="banner-subtitle font-medium">AGENTURY PRÁCE</h2>
         <a href="{{ cmsUrl('job') }}" class="btn-outline-green">Nabídky práce</a>
     </div>
+    {% endif %}
+    {% if current_block.getOption("title") or current_block.getOption("subtitle") %}
+        <div class="page-title">
+            {% if current_block.getOption("title") %}
+                <h2 class="banner-title font-bold">{{ current_block.getOption("title") }}</h2>
+            {% endif %}
+            {% if current_block.getOption("subtitle") %}
+                <h3 class="banner-subtitle font-light">{{ current_block.getOption("subtitle") }}</h3>
+            {% endif %}
+        </div>
     {% endif %}
 
 </header>

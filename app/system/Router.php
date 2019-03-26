@@ -124,9 +124,21 @@ final class Router extends RouteCollection
                     throw new RouteWithoutPathException();
                 }
 
-                $defaults = $routeDefinition["defaults"] ?: [];
-                $requirements = $routeDefinition["requirements"] ?: [];
-                $options = $routeDefinition["options"] ?: [];
+                if (isset($routeDefinition["defaults"])) {
+                    $defaults = $routeDefinition["defaults"];
+                } else {
+                    $defaults = [];
+                }
+                if (isset($routeDefinition["requirements"])) {
+                    $requirements = $routeDefinition["requirements"];
+                } else {
+                    $requirements = [];
+                }
+                if (isset($routeDefinition["options"])) {
+                    $options = $routeDefinition["options"];
+                } else {
+                    $options = [];
+                }
 
                 $this->add($routeName, new Route($route, $defaults, $requirements, $options));
             }

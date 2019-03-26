@@ -1,0 +1,22 @@
+<div class="card mt-1">
+    <div class="card-body">
+        <h5 class="card-title">{{ cmsTranslate("admin.navigationMenu") }}</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ cmsUrl("admin",{"module":"core","controller":"dashboard"}) }}">{{ cmsTranslate("admin.dashboard.title") }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ cmsUrl("admin",{"module":"page","controller":"index"}) }}">{{ cmsTranslate("admin.page.title") }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ cmsUrl("admin",{"module":"job","controller":"index"}) }}">{{ cmsTranslate("admin.job.title") }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ cmsUrl("admin",{"module":"news","controller":"index"}) }}">{{ cmsTranslate("admin.news.title") }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ cmsUrl("admin",{"module":"core","controller":"index", "action": "logout"}) }}">{{ cmsTranslate("admin.logout") }}</a>
+            </li>
+        </ul>
+    </div>
+</div>

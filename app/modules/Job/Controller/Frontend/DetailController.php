@@ -13,7 +13,9 @@ class DetailController extends Controller
         App::get()->getProfiler()->start("App::Job::DetailController::indexAction");
 
         $job=(new Job())->findFirstBy('slug',$this->getRouteParam('slug'));
-        var_dump($job);exit;
+
+        $this->getView()->setVar("job", $job);
+
         App::get()->getProfiler()->stop("App::Job::DetailController::indexAction");
     }
 }

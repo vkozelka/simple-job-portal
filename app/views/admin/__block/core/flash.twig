@@ -1,0 +1,9 @@
+{% if messages|length %}
+    <div class="messages-area">
+        {% for type,message in messages %}
+            {% for m in message %}
+                <div class="alert alert-{{ type }}">{{ m }}</div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endif %}

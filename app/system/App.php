@@ -96,6 +96,11 @@ final class App
     private $__user = null;
 
     /**
+     * @var null|\App\Module\Core\Entity\Admin\User
+     */
+    private $__adminUser = null;
+
+    /**
      * @var null|Email
      */
     private $__email = null;
@@ -232,6 +237,13 @@ final class App
     }
 
     /**
+     * @return \App\Module\Core\Entity\Admin\User|null
+     */
+    public function getAdminUser() {
+        return $this->__adminUser;
+    }
+
+    /**
      * @return Email|null
      */
     public function getEmail()
@@ -269,24 +281,27 @@ final class App
             $this->getSession()->start();
         }
         $this->getProfiler()->stop("App::Session::init");
-        $this->__locale = $this->getRequest()->getPreferredLanguage(["cs_CZ"]);
-        $this->__translator = new Translator();
         $this->__config = new Config();
+        $this->__locale = $this->getRequest()->getPreferredLanguage(array_merge([$this->getConfig()->getConfigValues("system")["system"][$this->getEnvironment()]["default_language"]],[]));
+        $this->__translator = new Translator();
         $this->__response = new Response();
         $this->__router = new Router();
         $this->__database = new Database();
         $this->__url = new Url($this->getRouter());
         $this->__email = new Email();
         if ($this->getSession()->has("user") && $this->getSession()->get("user")) {
-            $this->__user = (new \App\Module\User\Model\User())->findFirst($this->getSession()->get("user")->id_user);
+            $this->__user = (new \App\Module\User\Model\User())->findFirst($this->getSession()->get("user")->id);
+        }
+        if ($this->getSession()->has("admin_user") && $this->getSession()->get("admin_user")) {
+            $this->__adminUser = (new \App\Module\Core\Model\Admin\User())->findFirst($this->getSession()->get("admin_user")->id_admin_user);
         }
     }
 
     private function __prepareDirs() {
-        $this->__checkDir(CMS_DIR_VAR,true);
-        $this->__checkDir(CMS_DIR_VAR_CACHE,true);
-        $this->__checkDir(CMS_DIR_VAR_LOG,true);
-        $this->__checkDir(CMS_DIR_VAR_SESSION,true);
+        $this->checkDir(CMS_DIR_VAR,true);
+        $this->checkDir(CMS_DIR_VAR_CACHE,true);
+        $this->checkDir(CMS_DIR_VAR_LOG,true);
+        $this->checkDir(CMS_DIR_VAR_SESSION,true);
         ini_set("session.save_path", CMS_DIR_VAR_SESSION);
     }
 
@@ -296,7 +311,7 @@ final class App
      * @return bool
      * @throws DirectoryNotWritableException
      */
-    private function __checkDir($path, $createIfNotExists = false) {
+    public function checkDir($path, $createIfNotExists = false) {
         if (!file_exists($path)) {
             if ($createIfNotExists) {
                 mkdir($path, 0777, true);
@@ -346,7 +361,10 @@ final class App
         $controllerClass = $namespace . "\\" . $module . "\\Controller\\" . ($section?($section."\\"):"") . $controller;
         $controllerInstance = new $controllerClass;
         if (method_exists($controllerInstance, "initialize")) {
-            $controllerInstance->initialize();
+            $initializeResult = $controllerInstance->initialize();
+            if ($initializeResult instanceof Response) {
+                return $initializeResult->send();
+            }
         }
         if (!method_exists($controllerInstance, $action)) {
             throw new ActionNotFoundException("Action " . $action . " not found in controller " . $controller);
@@ -361,6 +379,9 @@ final class App
         if ($result instanceof Response) {
             return $result->send();
         } elseif ($result instanceof View) {
+            if ($result->hasCustomTemplate()) {
+                return $result->render($result->getCustomTemplate());
+            }
             return $result->render();
         } elseif (is_null($result)) {
             return $controllerInstance->getView()->render($routeParams["module"] . "/" . $routeParams["controller"] . "/" . $routeParams["action"]);

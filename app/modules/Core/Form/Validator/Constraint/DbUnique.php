@@ -10,6 +10,8 @@ class DbUnique extends Constraint {
     public $table;
     public $column;
     public $nospaces = true;
+    public $additionalSql = null;
+
 
     public function validatedBy()
     {

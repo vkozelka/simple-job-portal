@@ -25,7 +25,7 @@ class Model {
     /**
      * @var \Doctrine\DBAL\Connection|null
      */
-    private $__connection;
+    protected $__connection;
 
     public function __construct()
     {

@@ -1,0 +1,25 @@
+{% extends "layout.twig" %}
+
+{% block main %}
+    <h2>{{ cmsTranslate("admin.job.title") }}: {{ cmsTranslate("admin.job.edit") }}</h2>
+
+    <form action="{{ cmsUrl("admin",{"module":"job","controller":"index","action":"edit","params":job.id}) }}" method="post">
+        <div class="row"><div class="col">{{ include('__partials/form/element/text.twig', {form:jobForm,field:'title',label:cmsTranslate("admin.job.title")}) }}</div></div>
+        <div class="row"><div class="col">{{ include('__partials/form/element/text.twig', {form:jobForm,field:'slug',label:cmsTranslate("admin.job.slug")}) }}</div></div>
+        <div class="row"><div class="col">{{ include('__partials/form/element/wysiwyg.twig', {form:jobForm,field:'description',label:cmsTranslate("admin.job.description")}) }}</div></div>
+        <div class="row">
+            <div class="col">{{ include('__partials/form/element/select.twig', {form:jobForm,field:'salary_type',label:cmsTranslate("admin.job.salary_type"),"options":salaryTypeOptions}) }}</div>
+            <div class="col">{{ include('__partials/form/element/text.twig', {form:jobForm,field:'salary',label:cmsTranslate("admin.job.salary")}) }}</div>
+            <div class="col">{{ include('__partials/form/element/select.twig', {form:jobForm,field:'currency',label:cmsTranslate("admin.job.currency"),"options":currencyOptions}) }}</div>
+            <div class="col">{{ include('__partials/form/element/select.twig', {form:jobForm,field:'salary_period',label:cmsTranslate("admin.job.salary_period"),"options":salaryPeriodOptions}) }}</div>
+        </div>
+        <div class="row"><div class="col">{{ include('__partials/form/element/select.twig', {form:jobForm,field:'contract',label:cmsTranslate("admin.job.contract"),"options":contractOptions}) }}</div></div>
+        <div class="row"><div class="col">{{ include('__partials/form/element/checkbox.twig', {form:jobForm,field:'is_active',label:cmsTranslate("admin.job.is_active")}) }}</div></div>
+        <hr>
+        <div class="row">
+            <div class="col"><a href="{{ cmsUrl("admin",{"module":"job","controller":"index"}) }}"><span class="fa fa-arrow-left"></span> {{ cmsTranslate("admin.back") }}</a></div>
+            <div class="col text-right"><button type="submit" class="btn btn-success"><span class="fa fa-floppy-o"></span> {{ cmsTranslate("admin.save") }}</button></div>
+        </div>
+    </form>
+
+{% endblock %}

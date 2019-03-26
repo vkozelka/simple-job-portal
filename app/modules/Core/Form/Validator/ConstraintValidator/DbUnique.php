@@ -2,6 +2,7 @@
 namespace App\Module\Core\Form\Validator\ConstraintValidator;
 
 use App\System\App;
+use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
@@ -9,7 +10,7 @@ class DbUnique extends ConstraintValidator {
 
     public function validate($value, Constraint $constraint)
     {
-        if (!$constraint instanceof \App\Module\User\Form\Validator\Constraint\DbUnique) {
+        if (!$constraint instanceof \App\Module\Core\Form\Validator\Constraint\DbUnique) {
             throw new UnexpectedTypeException($constraint, \App\Module\Core\Form\Validator\Constraint\DbUnique::class);
         }
 
@@ -22,6 +23,11 @@ class DbUnique extends ConstraintValidator {
         }
 
         $query = "SELECT * FROM `%s` WHERE `%s` = '%s'";
+        if ($constraint->additionalSql) {
+            $query.= $constraint->additionalSql;
+        }
+
+
         $result = App::get()->getDatabase()->getConnection()->query(sprintf($query, $constraint->table,$constraint->column, $value))->fetch(\PDO::FETCH_ASSOC);
 
         if ($result && $result[$constraint->column]) {

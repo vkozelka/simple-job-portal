@@ -1,0 +1,35 @@
+{% extends "layout.twig" %}
+
+{% block main %}
+    <h2>{{ cmsTranslate("admin.page.title") }}</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>{{ cmsTranslate("admin.page.title") }}</th>
+            <th class="text-center">{{ cmsTranslate("admin.page.created_at") }}</th>
+            <th class="text-center">{{ cmsTranslate("admin.page.updated_at") }}</th>
+            <th class="text-right"><a class="btn btn-sm btn-success" href="{{ cmsUrl("admin",{"module":"page","controller":"index","action":"new"}) }}"><span class="fa fa-plus"></span> Přidat</a></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if pages | length > 0 %}
+            {% for p in pages %}
+            <tr>
+                <td class="text-left">{{ p.title }}</td>
+                <td class="text-center">{{ p.created_at }}</td>
+                <td class="text-center">{{ p.updated_at }}</td>
+                <td class="text-right">
+                    <a class="btn btn-sm btn-info" href="{{ cmsUrl("admin",{"module":"page","controller":"index","action":"edit","params":p.id}) }}"><span class="fa fa-pencil"></span></a>
+                    <a class="btn btn-sm btn-danger" href="{{ cmsUrl("admin",{"module":"page","controller":"index","action":"delete","params":p.id}) }}"><span class="fa fa-trash"></span></a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4" class="text-center">Není zde žádná stránka</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

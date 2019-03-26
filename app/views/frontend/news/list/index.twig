@@ -1,0 +1,26 @@
+{% extends "layout.twig" %}
+
+{% block headTitle %}Aktuality ::{% endblock %}
+
+{% block main %}
+    {{ cmsBlock("core/header",{"class":"job-header","show_jumbotron": false, title: "Aktuality"}).render() | raw }}
+    <section class="content gray-bg">
+        <div class="container">
+            <div class="row">
+                {% for n in news %}
+                <div class="col-12">
+                    <a href="{{ cmsUrl('news_detail',{'slug':n.slug}) }}" class="card offer-item news-item">
+                        <div class="card-body">
+                            <h5 class="card-title offer-item-title font-regular">{{ n.title }}</h5>
+                            <p class="card-text  offer-item-description font-light">
+                                {{ n.description | striptags | slice(0,200) }}
+                                <br /><small class="font-light">Zveřejněno: {{ n.created_at|date("d.m.Y H:i") }}</small>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
