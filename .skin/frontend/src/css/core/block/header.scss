@@ -3,8 +3,9 @@ $primary-color: #009844;
 body {
   overflow-x: hidden;
 }
+
 a.hover {
-  color: #009844!important;
+  color: #009844 !important;
 }
 
 .container-fluid {
@@ -15,11 +16,26 @@ a.hover {
 .navbar {
   background-color: $primary-color;
   padding: 0;
+
   .nav-item {
     margin: 0 1.2rem;
+
     .nav-link {
       color: #fff;
       display: block;
+      @include media-breakpoint-down(md) {
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+      }
+    }
+
+    @include media-breakpoint-down(lg) {
+      margin: 0 0.9rem
+    }
+    @include media-breakpoint-down(md) {
+      margin: 0;
     }
   }
 }
@@ -28,14 +44,26 @@ a.hover {
   background: url("/skin/frontend/img/banner_separator.png") no-repeat right center #fff;
   height: 79px;
   line-height: 70px;
+
   .navbar-brand {
     margin-right: 5rem;
+    @include media-breakpoint-down(xs) {
+      width: 55vw;
+      img {
+        width: 100%;
+      }
+    }
   }
+
 }
 
 .homepage-header {
   height: 700px;
   background: url("/skin/frontend/img/banner.png") no-repeat center center;
+  @include media-breakpoint-down(xs) {
+    height: 330px;
+    padding-top: 80px;
+  }
 }
 
 .job-header {
@@ -70,10 +98,23 @@ a.hover {
       &:hover {
         background-color: #017032;
       }
+
       &:last-child {
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
       }
+
+      @include media-breakpoint-down(md) {
+        display: block;
+        text-align: center;
+
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      background-color: darken(#009844, 5%);
+      margin: 0;
+      padding: 0;
     }
   }
 }
@@ -92,6 +133,7 @@ a.hover {
     display: block;
     font-size: 3rem;
   }
+
   & > h3 {
     color: #fff;
     display: block;
@@ -104,10 +146,25 @@ a.hover {
   color: #fff;
   text-align: center;
   height: 100%;
+
   h2 {
     font-size: 4.375rem;
+
     &.banner-title {
       font-size: 2.8125rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+      font-size: 3.5rem;
+      &.banner-title {
+        font-size: 2.2rem;
+      }
+    }
+    @include media-breakpoint-down(xs) {
+      font-size: 2.5rem;
+      &.banner-title {
+        font-size: 1.6rem;
+      }
     }
   }
 }
@@ -117,11 +174,13 @@ a.hover {
   border: 1px solid $primary-color;
   padding: 0.5rem 3rem;
   color: #fff;
+
   &:hover {
     background-color: $primary-color !important;
     color: #fff !important;
   }
 }
+
 .btn-green {
   background-color: $primary-color;
   border: 1px solid $primary-color;
@@ -129,4 +188,30 @@ a.hover {
   border-bottom-width: 4px;
   padding: 0.5rem 2rem;
   color: #fff;
+}
+
+
+.header {
+
+  @include media-breakpoint-down(md) {
+    .container {
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+
+      .navbar-left {
+        padding-left: 15px;
+      }
+
+      .hamburger {
+        margin-right: 15px;
+        margin-top: 8px;
+
+        &:focus {
+          outline: none !important;
+          box-shadow: none;
+        }
+      }
+    }
+  }
 }

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             {% for job in jobs|slice(0,3) %}
-            <div class="col-4">
+            <div class="col-lg-4 col-sm-12">
                 <a href="{{ cmsUrl('job_detail',{'slug':job.slug}) }}" class="card offer-item">
                     <div class="card-body">
                         <h5 class="card-title offer-item-title font-light">{{ job.title }}</h5>

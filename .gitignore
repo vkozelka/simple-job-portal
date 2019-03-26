@@ -4,3 +4,4 @@
 /vendor
 /.idea
 /database
+.DS_Store

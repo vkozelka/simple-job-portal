@@ -1,5 +1,0 @@
-system:
-  development:
-    base_url: "http://www.base-system.local/"
-  production:
-    base_url: "http://www.base-system.local/"
