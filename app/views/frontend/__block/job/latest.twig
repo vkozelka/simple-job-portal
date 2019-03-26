@@ -1,37 +1,21 @@
+{% if jobs | length > 0 %}
 <section class="offers gray-bg">
     <h3 class="font-light">AKTUÁLNÍ NABÍDKY PRÁCE</h3>
     <div class="container">
         <div class="row">
+            {% for job in jobs|slice(0,3) %}
             <div class="col-4">
-                <a href="#" class="card offer-item">
+                <a href="{{ cmsUrl('job_detail',{'slug':job.slug}) }}" class="card offer-item">
                     <div class="card-body">
-                        <h5 class="card-title offer-item-title font-light">Svářeč CO2 - Německo</h5>
+                        <h5 class="card-title offer-item-title font-light">{{ job.title }}</h5>
                         <p class="card-text  offer-item-description font-light">
-                            Chceš svařovat v mezinárodní společnosti v zahraničí a podílet se na výrobě větrných elektráren? Máš jedineční možnost. Co tě u nás čeká? ·<span class="offer-salary font-regular">Mzda: 13 €/hod (čistého) </span>
+                            {{ job.description | striptags | slice(0,100) }}
+                            <span class="offer-salary font-regular">Mzda: {{ job.getFormattedSalary() }}</span>
                         </p>
                     </div>
                 </a>
             </div>
-            <div class="col-4">
-                <a href="#" class="card offer-item">
-                    <div class="card-body">
-                        <h5 class="card-title offer-item-title font-light">Operátor výroby v automotive</h5>
-                        <p class="card-text  offer-item-description font-light">
-                            Chceš pracovat ve výrobě, ale ne u pásový výroby? Máš jedineční možnost. · Co tě u nás čeká? Výroba svařovaných a lisovaných dílů pro<span class="offer-salary font-regular">Mzda: 110 Kč/hod (čistého) </span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-4">
-                <a href="#" class="card offer-item">
-                    <div class="card-body">
-                        <h5 class="card-title offer-item-title font-light">Operátor výroby v automotive</h5>
-                        <p class="card-text  offer-item-description font-light">
-                            Chceš pracovat ve výrobě, ale ne u pásový výroby? Máš jedineční možnost. · Co tě u nás čeká? Výroba svařovaných a lisovaných dílů pro<span class="offer-salary font-regular">Mzda: 110 Kč/hod (čistého) </span>
-                        </p>
-                    </div>
-                </a>
-            </div>
+            {% endfor %}
         </div>
         <div class="row">
             <div class="col-12 text-center">
@@ -40,3 +24,4 @@
         </div>
     </div>
 </section>
+{% endif %}

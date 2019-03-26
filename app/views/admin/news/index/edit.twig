@@ -1,0 +1,18 @@
+{% extends "layout.twig" %}
+
+{% block main %}
+    <h2>{{ cmsTranslate("admin.news.title") }}: {{ cmsTranslate("admin.news.edit") }}</h2>
+
+    <form action="{{ cmsUrl("admin",{"module":"news","controller":"index","action":"edit","params":news.id}) }}" method="post">
+        <div class="row"><div class="col">{{ include('__partials/form/element/text.twig', {form:newsForm,field:'title',label:cmsTranslate("admin.news.title")}) }}</div></div>
+        <div class="row"><div class="col">{{ include('__partials/form/element/text.twig', {form:newsForm,field:'slug',label:cmsTranslate("admin.news.slug")}) }}</div></div>
+        <div class="row"><div class="col">{{ include('__partials/form/element/wysiwyg.twig', {form:newsForm,field:'description',label:cmsTranslate("admin.news.description")}) }}</div></div>
+        <div class="row"><div class="col">{{ include('__partials/form/element/checkbox.twig', {form:newsForm,field:'is_active',label:cmsTranslate("admin.news.is_active")}) }}</div></div>
+        <hr>
+        <div class="row">
+            <div class="col"><a href="{{ cmsUrl("admin",{"module":"news","controller":"index"}) }}"><span class="fa fa-arrow-left"></span> {{ cmsTranslate("admin.back") }}</a></div>
+            <div class="col text-right"><button type="submit" class="btn btn-success"><span class="fa fa-floppy-o"></span> {{ cmsTranslate("admin.save") }}</button></div>
+        </div>
+    </form>
+
+{% endblock %}

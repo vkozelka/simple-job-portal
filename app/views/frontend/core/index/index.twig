@@ -3,27 +3,27 @@
 {% block main %}
     {{ parent() }}
 
-    {{ cmsBlock("job/latest").render() | raw }}
+    {{ cmsBlock("job/latest").loadJobs().render() | raw }}
     <section class="numbers">
         <div class="container">
             <div class="row">
                 <div class="col-4 text-center d-flex flex-column justify-content-center">
                     <div class="icon-wrapper">
-                        <img src="/skin/img/icon_ads.png" alt="ads">
+                        <img src="/skin/frontend/img/icon_ads.png" alt="ads">
                     </div>
                     <div class="number font-medium">2</div>
                     <div class="number-title">nabídky práce</div>
                 </div>
                 <div class="col-4 text-center d-flex flex-column justify-content-center">
                     <div class="icon-wrapper">
-                        <img src="/skin/img/icon_company.png" alt="ads">
+                        <img src="/skin/frontend/img/icon_company.png" alt="ads">
                     </div>
                     <div class="number font-medium">1 256</div>
                     <div class="number-title">firem v databázi</div>
                 </div>
                 <div class="col-4 text-center d-flex flex-column justify-content-center">
                     <div class="icon-wrapper">
-                        <img src="/skin/img/icon_experience.png" alt="ads">
+                        <img src="/skin/frontend/img/icon_experience.png" alt="ads">
                     </div>
                     <div class="number font-medium">5</div>
                     <div class="number-title">let zkušeností</div>
@@ -31,6 +31,8 @@
             </div>
         </div>
     </section>
+
+    {{ cmsBlock("news/latest").loadNews().render() | raw }}
 
     <section class="content gray-bg">
         <div class="container">
@@ -63,7 +65,7 @@
                         <div class="card-text">
                             <h4 class="font-light">PRO FIRMY</h4>
                             <div class="row">
-                                <div class="col-4"><img src="/skin/img/block_company.png" alt="pro firmy"/></div>
+                                <div class="col-4"><img src="/skin/frontend/img/block_company.png" alt="pro firmy"/></div>
                                 <div class="col-8">
                                     <p class="font-light">Získáme kvalifikovaného pracovníka, který přesně odpovídá vašim potřebám. Vylepšíme image Vaší společnosti tak, aby lákala nové zaměstnance sama.</p>
                                     <p class="font-light">Zajistíme ubytování v místě výkonu práce a patřičné pracovní pomůcky.</p>
@@ -78,6 +80,6 @@
     </section>
 
     </div>
-    <script src="/skin/bundle.js"></script>
+    <script src="/skin/frontend/bundle.js"></script>
 
 {% endblock %}

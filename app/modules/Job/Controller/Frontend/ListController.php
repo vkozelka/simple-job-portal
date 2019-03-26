@@ -12,7 +12,7 @@ class ListController extends Controller
     public function indexAction()
     {
         App::get()->getProfiler()->start("App::Job::ListController::indexAction");
-        $jobs = (new Job())->findAllJobs();
+        $jobs = (new Job())->findAllJobs(true, "created_at", "DESC");
         $this->getView()->setVars([
             "jobs" => $jobs
         ]);

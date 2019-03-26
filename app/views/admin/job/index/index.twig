@@ -1,0 +1,35 @@
+{% extends "layout.twig" %}
+
+{% block main %}
+    <h2>{{ cmsTranslate("admin.job.title") }}</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>{{ cmsTranslate("admin.job.title") }}</th>
+            <th class="text-center">{{ cmsTranslate("admin.job.created_at") }}</th>
+            <th class="text-center">{{ cmsTranslate("admin.job.updated_at") }}</th>
+            <th class="text-right"><a class="btn btn-sm btn-success" href="{{ cmsUrl("admin",{"module":"job","controller":"index","action":"new"}) }}"><span class="fa fa-plus"></span> Přidat</a></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if jobs | length > 0 %}
+            {% for job in jobs %}
+            <tr>
+                <td class="text-left">{{ job.title }}</td>
+                <td class="text-center">{{ job.created_at }}</td>
+                <td class="text-center">{{ job.updated_at }}</td>
+                <td class="text-right">
+                    <a class="btn btn-sm btn-info" href="{{ cmsUrl("admin",{"module":"job","controller":"index","action":"edit","params":job.id}) }}"><span class="fa fa-pencil"></span></a>
+                    <a class="btn btn-sm btn-danger" href="{{ cmsUrl("admin",{"module":"job","controller":"index","action":"delete","params":job.id}) }}"><span class="fa fa-trash"></span></a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4" class="text-center">Není zde žádná pozice</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

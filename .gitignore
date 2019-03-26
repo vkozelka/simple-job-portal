@@ -1,5 +1,6 @@
-/.skin/node_modules/
+/.skin/*/node_modules/
 /config/*.yml
 /var
 /vendor
 /.idea
+/database

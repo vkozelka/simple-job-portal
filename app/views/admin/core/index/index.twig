@@ -1,0 +1,20 @@
+{% extends "login.twig" %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-4 mx-auto mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cmsTranslate("admin.login.title") }}</h5>
+                    <div class="card-text">
+                        <form action="{{ cmsUrl("admin",{"module":"core","controller":"index"}) }}" method="post">
+                            {{ include('__partials/form/element/text.twig', {form:loginForm,field:'username',label:cmsTranslate("admin.login.form.username")}) }}
+                            {{ include('__partials/form/element/password.twig', {form:loginForm,field:'password',label:cmsTranslate("admin.login.form.password")}) }}
+                            <button type="submit" class="btn btn-primary btn-block">{{ cmsTranslate("admin.login.form.button") }}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+<div class="form-group">
+    <label for="{{ field }}">{{ label }}</label>
+    <input
+            type="number"
+            placeholder="{{ label }}"
+            name="{{ field }}"
+            id="{{ field }}"
+            class="form-control"
+            {% if form.hasData(field) %}value="{{ form.getData(field) }}"{% endif %}
+    >
+    {% if form.hasErrors(field) %}
+        <ul class="cms-form-error-container">
+            {% for error in form.getErrors(field) %}
+                <li>{{ cmsFormError(error) }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

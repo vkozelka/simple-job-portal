@@ -1,0 +1,28 @@
+{% if news | length > 0 %}
+<section class="offers gray-bg">
+    <h3 class="font-light">AKTUALITY</h3>
+    <div class="container">
+        <div class="row">
+            {% for n in news|slice(0,1) %}
+                <div class="col-12">
+                    <a href="{{ cmsUrl('news_detail',{'slug':n.slug}) }}" class="card offer-item news-item">
+                        <div class="card-body">
+                            <h5 class="card-title offer-item-title font-regular">{{ n.title }}</h5>
+                            <p class="card-text  offer-item-description font-light">
+                                {{ n.description | striptags | slice(0,200) }}
+                                <br /><small class="font-light">Zveřejněno: {{ n.created_at|date("d.m.Y H:i") }}</small>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{{ cmsUrl('news') }}" class="btn btn-green">Všechny aktuality</a>
+            </div>
+        </div>
+    </div>
+</section>
+    <hr>
+{% endif %}

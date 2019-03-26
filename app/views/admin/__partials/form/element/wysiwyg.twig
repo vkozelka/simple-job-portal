@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label for="{{ field }}">{{ label }}</label>
+    <editor></editor>
+    <textarea
+            placeholder="{{ label }}"
+            name="{{ field }}"
+            id="{{ field }}"
+            class="form-control tinymce-editor"
+    >{% if form.hasData(field) %}{{ form.getData(field) }}{% endif %}</textarea>
+    {% if form.hasErrors(field) %}
+        <ul class="cms-form-error-container">
+            {% for error in form.getErrors(field) %}
+                <li>{{ cmsFormError(error) }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

@@ -16,6 +16,7 @@ class Cms Extends \Twig_Extension {
             new \Twig_Function('cmsDebug', [$this, 'debug']),
             new \Twig_Function('cmsFormError', [$this, 'formError']),
             new \Twig_Function('cmsUser', [$this, 'user']),
+            new \Twig_Function('cmsAdmin', [$this, 'admin']),
             new \Twig_Function('cmsDate', [$this, 'date']),
             new \Twig_Function('cmsTime', [$this, 'time']),
             new \Twig_Function('cmsDateTime', [$this, 'datetime']),
@@ -29,6 +30,10 @@ class Cms Extends \Twig_Extension {
 
     public function user() {
         return App::get()->getUser();
+    }
+
+    public function admin() {
+        return App::get()->getAdmin();
     }
 
     public function replace($subject, $pattern, $replace)

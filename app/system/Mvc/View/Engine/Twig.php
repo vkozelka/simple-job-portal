@@ -29,6 +29,7 @@ class Twig implements EngineInterface
             "strict_variables" => "development" !== App::get()->getEnvironment(),
         ]);
         $this->__twig->addExtension(new Cms());
+        $this->__twig->addExtension(new \Twig_Extension_StringLoader());
         $this->__twig->addGlobal("cms", App::get());
     }
 

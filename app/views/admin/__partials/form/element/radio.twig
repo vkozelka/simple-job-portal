@@ -1,0 +1,17 @@
+<div class="row">
+{% for val,lab in options %}
+<label class="col text-center">
+    <input class="form-check-input" name="{{ field }}" type="radio" value="{{ val }}" id="{{ field }}_{{ val }}" {% if form.hasData(field) and form.getData(field) == val %}checked{% endif %}>
+    {{ lab }}
+</label>
+{% endfor %}
+</div>
+<div class="form-group">
+    {% if form.hasErrors(field) %}
+        <ul class="cms-form-error-container">
+            {% for error in form.getErrors(field) %}
+                <li>{{ cmsFormError(error) }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

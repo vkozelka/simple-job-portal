@@ -13,6 +13,8 @@ class View
      */
     private $__engine;
 
+    private $__customTemplate = null;
+
     private $__data = [];
 
     public function __construct(string $section = null)
@@ -32,10 +34,26 @@ class View
 
     public function setVars(array $data = []) {
         $this->__data = $data;
+        return $this;
     }
 
     public function setVar(string $variable, $value = null) {
         $this->__data[$variable] = $value;
+        return $this;
+    }
+
+    public function setCustomTemplate(string $name) {
+        $this->__customTemplate = $name;
+        return $this;
+    }
+
+    public function getCustomTemplate() {
+        return $this->__customTemplate;
+    }
+
+    public function hasCustomTemplate()
+    {
+        return $this->__customTemplate ? true : false;
     }
 
     /**
